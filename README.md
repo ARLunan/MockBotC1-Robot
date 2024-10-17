@@ -1,4 +1,4 @@
-# MockBotC1 Create 1 Base
+# MockBotC1 Create1 Base Project Robot
 
 This Repository is a varient of the Linorobot2 Repository with hardwire specific revisions to the URDF applicable to the AutonomyLab Create 1 Base (https://github.com/AutonomyLab/create_robot), SlamTec RPLidar, Luxonis Oak-D-Lite Camera & IMU.
 
