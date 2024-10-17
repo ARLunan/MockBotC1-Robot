@@ -6,7 +6,7 @@ This Repository is a varient of the Linorobot2 Repository with hardwire specific
 
 ### At this time, this repository is "Work in Progress" so expect errors to be displayed after launching many of the scripts and packages.
 
-The requirement of the work in this repository is to document the development and post the release of  ROS 2 Packages that migrate the original "Willow Garage" / Open Robotics Turtlebot (tm) where the last released repository was ROS Indigo, to ROS 2 Humble/Navigation 2 autonomous navigation'. This new repository called "MockTurtleBot" uses this orgiginal iRobot Create (™) 1 Base. It should be mentioned that while this repository is written to use with a iRobot Create 1, the installed base drive package (Autonomy Labs ™) includes support for the Roomba Model 500 or 600) and Create 2 base. To enable these drivers, a manual revison must be made to the mtbc1_bringup launch file that is installed in the mtbc1_ws workspace, and recompiled.  
+The requirement of the work in this repository is to document the development and post the release of  ROS 2 Packages that migrate the original "Willow Garage" / Open Robotics Turtlebot (tm) where the last released repository was ROS Indigo, to ROS 2 Humble/Navigation 2 autonomous navigation'. This new repository called "MockTurtleBot" uses this orgiginal iRobot Create (™) 1 Base. It should be mentioned that while this repository is written to use with a iRobot Create 1, the installed base drive package (Autonomy Labs ™) includes support for the Roomba Model 500 or 600) and Create 2 base. To enable these drivers, a manual revison must be made to the mockbotc1_bringup launch file that is installed in the mockbotc1_ws workspace, and recompiled.  
 
 **Installation of ROS 2 Packages and Dependancies on the Robot (Raspberry Pi Single Board Computer-SBC) and Desktop Computer.** This Repository material references the ROS 2 and dependencies installation documented in the linorobot2 repository *https://github.com/linorobot/linorobot2/blob/humble/ROBOT* , and adds instructions specfically for this MockTurtleBotC1 robot model.
 
@@ -30,7 +30,7 @@ From the Ubuntu home directory, *~/git clone https://github.com/linorobot/ros2me
 
 1.1 Source your ROS 2 distro, which is **humble** in this documentation and workspace
 source /opt/ros/humble/setup.bash
-cd mtbc1_ws
+cd mockbotc1_ws
 colcon build
 source install/setup.bash
 
@@ -38,7 +38,7 @@ add this script to the ~/.bashrc in your home directory to make this designation
 
 $ export "source /opt/ros/humble/setup.bash"
 
-The <your_ws> workspace is designated as **mtbc1_ws/src**, or whatever you desire to use.
+The <your_ws> workspace is designated as **mockbotc1_ws/src**, or whatever you desire to use.
 
 $ sudo apt-get install build-essential cmake libboost-system-dev libboost-thread-dev
 

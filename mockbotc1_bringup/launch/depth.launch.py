@@ -35,7 +35,7 @@ def generate_launch_description():
     }
     
     config = os.path.join(
-        get_package_share_directory('mtbc1_bringup'), 'config', 'oakd_inertial.yaml'
+        get_package_share_directory('mockbotc1_bringup'), 'config', 'oakd_inertial.yaml'
     )
         
     return LaunchDescription([

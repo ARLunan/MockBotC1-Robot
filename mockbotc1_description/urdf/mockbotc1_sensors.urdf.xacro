@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <!-- mtbc1 Sensor Models based on Turtlebot4 -->
+  <!-- mockbotc1 Sensor Models based on Turtlebot4 -->
    
-  <xacro:include filename="$(find mtbc1_description)/urdf/sensors/imu.urdf.xacro" />
-  <xacro:include filename="$(find mtbc1_description)/urdf/sensors/oakd.urdf.xacro" />
-  <xacro:include filename="$(find mtbc1_description)/urdf/sensors/camera_bracket.urdf.xacro" />
-  <xacro:include filename="$(find mtbc1_description)/urdf/sensors/rplidar.urdf.xacro" />
+  <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/imu.urdf.xacro" />
+  <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/oakd.urdf.xacro" />
+  <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/camera_bracket.urdf.xacro" />
+  <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/rplidar.urdf.xacro" />
   
-  <xacro:include filename="$(find mtbc1_description)/urdf/sensors/sensors_shelf.urdf.xacro" />
+  <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/sensors_shelf.urdf.xacro" />
 
   <!-- TB4 sensors definitions from turtlebot4.urdf.xacro,revised for turtlebot createC1 with gazebo parameters deleted-->
   
@@ -26,7 +26,7 @@
 
   <xacro:property name="imu_z_offset" value="${14.1*cm2m}" />
   
-  <!-- For Turtlebot4 sensor xacros , MUST match xacro mtbc1.urdf.xacro xacro:name-->
+  <!-- For Turtlebot4 sensor xacros , MUST match xacro mockbotc1.urdf.xacro xacro:name-->
   <xacro:rplidar name="rplidar" parent_link="base_link">
     <origin xyz="${rplidar_x_offset} ${rplidar_y_offset} ${rplidar_z_offset + shelf_zoff}"
             rpy="0 0 0"/>

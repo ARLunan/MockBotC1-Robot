@@ -1,5 +1,5 @@
 # Revised by AR Lunan based on linorobot2 (no jsp gui) as the final MockTurtleBot-Robot repo. Environment value not necessary
-# Descrpton Package name is mtbc1_description . This launch file launches mtbc1.urdf.xacro and
+# Descrpton Package name is mockbotc1_description . This launch file launches mockbotc1.urdf.xacro and
 # rviz urdf_config.rviz that properly displays the create_1 base robot model image.  
 #
 # Copyright (c) 2021 Juan Miguel Jimeno
@@ -30,12 +30,12 @@ def generate_launch_description():
 
     urdf_path = PathJoinSubstitution(
         #[FindPackageShare("linorobot2_description"), "urdf/robots", f"{robot_base}.urdf.xacro"]
-        [FindPackageShare("mtbc1_description"), "urdf", "mtbc1.urdf.xacro"]
+        [FindPackageShare("mockbotc1_description"), "urdf", "mockbotc1.urdf.xacro"]
     )
 
     rviz_config_path = PathJoinSubstitution(
-        #[FindPackageShare('mtbc1_description'), 'rviz', 'description.rviz']
-        [FindPackageShare('mtbc1_description'), 'rviz', 'urdf.config.rviz']
+        #[FindPackageShare('mockbotc1_description'), 'rviz', 'description.rviz']
+        [FindPackageShare('mockbotc1_description'), 'rviz', 'urdf.config.rviz']
     )
 
     return LaunchDescription([

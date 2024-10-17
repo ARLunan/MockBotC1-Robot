@@ -25,11 +25,11 @@ from launch.conditions import IfCondition, UnlessCondition
 def generate_launch_description():
 
     sensors_launch_path=PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'),'launch','sensors.launch.py']
+        [FindPackageShare('mockbotc1_bringup'),'launch','sensors.launch.py']
     )
 
     description_launch_path=PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'),'launch','description.launch.py']
+        [FindPackageShare('mockbotc1_bringup'),'launch','description.launch.py']
     )
 
     return LaunchDescription([

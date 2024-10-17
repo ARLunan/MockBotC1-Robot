@@ -3,7 +3,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
 <xacro:macro name="rplidar" params="name parent_link *origin">
-  <xacro:include filename="$(find mtbc1_description)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find mockbotc1_description)/urdf/common_properties.urdf.xacro"/>
 
   <xacro:property name="mass"       value="0.17"/>
   <xacro:property name="length_x"   value="${7.1*cm2m}" />
@@ -23,7 +23,7 @@
   <link name="${name}_link">
     <visual>
       <geometry>
-        <mesh filename="package://mtbc1_description/meshes/rplidar.dae" scale="1 1 1" />
+        <mesh filename="package://mockbotc1_description/meshes/rplidar.dae" scale="1 1 1" />
       </geometry>
     </visual>
     <collision>

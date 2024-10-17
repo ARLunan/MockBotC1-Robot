@@ -26,26 +26,26 @@ from launch.conditions import IfCondition, UnlessCondition
 MAP_NAME='playground' #change to the name of your own map here
 
 def generate_launch_description():
-    depth_sensor = os.getenv('MTBC1_DEPTH_SENSOR', '')
+    depth_sensor = os.getenv('mockbotc1_DEPTH_SENSOR', '')
 
     nav2_launch_path = PathJoinSubstitution(
         [FindPackageShare('nav2_bringup'), 'launch', 'bringup_launch.py']
     )
 
     rviz_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'rviz', 'mtbc1_navigation.rviz']
+        [FindPackageShare('mockbotc1_navigation'), 'rviz', 'mockbotc1_navigation.rviz']
     )
 
     default_map_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'maps', f'{MAP_NAME}.yaml']
+        [FindPackageShare('mockbotc1_navigation'), 'maps', f'{MAP_NAME}.yaml']
     )
 
     nav2_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'config', 'navigation.yaml']
+        [FindPackageShare('mockbotc1_navigation'), 'config', 'navigation.yaml']
     )
 
     nav2_sim_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'config', 'navigation_sim.yaml']
+        [FindPackageShare('mockbotc1_navigation'), 'config', 'navigation_sim.yaml']
     )
 
 

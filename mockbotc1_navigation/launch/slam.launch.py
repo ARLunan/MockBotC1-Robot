@@ -30,7 +30,7 @@ def generate_launch_description():
     )
 
     slam_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'config', 'slam.yaml']
+        [FindPackageShare('mockbotc1_navigation'), 'config', 'slam.yaml']
     )
 
     navigation_launch_path = PathJoinSubstitution(
@@ -38,11 +38,11 @@ def generate_launch_description():
     )
 
     nav2_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'config', 'navigation.yaml']    
+        [FindPackageShare('mockbotc1_navigation'), 'config', 'navigation.yaml']    
     )
 
     rviz_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_navigation'), 'rviz', 'mtbc1_slam.rviz']
+        [FindPackageShare('mockbotc1_navigation'), 'rviz', 'mockbotc1_slam.rviz']
     )
     
     lc = LaunchContext()

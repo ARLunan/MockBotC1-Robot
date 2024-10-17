@@ -25,11 +25,11 @@ from launch_ros.actions import Node, SetRemap
 
 
 def generate_launch_description():
-    laser_sensor_name = os.getenv('MTBC1_LASER_SENSOR', '')
-    depth_sensor_name = os.getenv('MTBC1_DEPTH_SENSOR', '')
+    laser_sensor_name = os.getenv('mockbotc1_LASER_SENSOR', '')
+    depth_sensor_name = os.getenv('mockbotc1_DEPTH_SENSOR', '')
     
     fake_laser_config_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'config', 'fake_laser.yaml']
+        [FindPackageShare('mockbotc1_bringup'), 'config', 'fake_laser.yaml']
     )
 
     #indices
@@ -48,11 +48,11 @@ def generate_launch_description():
     }
 
     laser_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'launch', 'lasers.launch.py']
+        [FindPackageShare('mockbotc1_bringup'), 'launch', 'lasers.launch.py']
     )
 
     depth_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'launch', 'depth.launch.py']
+        [FindPackageShare('mockbotc1_bringup'), 'launch', 'depth.launch.py']
     )
 
     return LaunchDescription([

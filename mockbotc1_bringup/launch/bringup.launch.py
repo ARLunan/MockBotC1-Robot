@@ -25,23 +25,23 @@ from launch.conditions import IfCondition, UnlessCondition
 def generate_launch_description():
 
     sensors_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'launch', 'sensors.launch.py']
+        [FindPackageShare('mockbotc1_bringup'), 'launch', 'sensors.launch.py']
     )
     
     joy_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'launch', 'joy_teleop.launch.py']
+        [FindPackageShare('mockbotc1_bringup'), 'launch', 'joy_teleop.launch.py']
     )
     
     description_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_description'), 'launch', 'description.launch.py']
+        [FindPackageShare('mockbotc1_description'), 'launch', 'description.launch.py']
     )
     
     ekf_config_path = PathJoinSubstitution(
-        [FindPackageShare("mtbc1_base"), "config", "ekf.yaml"]
+        [FindPackageShare("mockbotc1_base"), "config", "ekf.yaml"]
     )
 
     default_robot_launch_path = PathJoinSubstitution(
-        [FindPackageShare('mtbc1_bringup'), 'launch', 'default_robot.launch.py']
+        [FindPackageShare('mockbotc1_bringup'), 'launch', 'default_robot.launch.py']
     )
         
     return LaunchDescription([ 

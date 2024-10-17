@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!-- Based on Turtlebot4 and called by mtbc1_sensors.urdf.xacro -->
+<!-- Based on Turtlebot4 and called by mockbotc1_sensors.urdf.xacro -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-<xacro:include filename="$(find mtbc1_description)/urdf/common_properties.urdf.xacro"/>
+<xacro:include filename="$(find mockbotc1_description)/urdf/common_properties.urdf.xacro"/>
 
 <xacro:macro name="camera_bracket" params="name parent_link:=shell_link *origin">
 
@@ -20,7 +20,7 @@
   <link name="${link_name}">
     <visual>
       <geometry>
-       <mesh filename="package://mtbc1_description/meshes/camera_bracket.dae" scale="1 1 1" />
+       <mesh filename="package://mockbotc1_description/meshes/camera_bracket.dae" scale="1 1 1" />
       </geometry>
     </visual>
     <inertial>

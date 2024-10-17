@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-  <!-- Added to mtbc1.description and called by mtbc1_sensors.urdf.xacro -->
+  <!-- Added to mockbotc1.description and called by mockbotc1_sensors.urdf.xacro -->
   <!-- Based on shell_link & joint declaration in /standard/turtlebot4_urdf.xacro -->
 <robot name="Sensors" xmlns:xacro="http://ros.org/wiki/xacro">
 

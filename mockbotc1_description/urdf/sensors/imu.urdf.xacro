@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Uses Oak-D-Lite urdf and called by mtbc1_sensors.urdf.xacro -->
+<!-- Uses Oak-D-Lite urdf and called by mockbotc1_sensors.urdf.xacro -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   
   <xacro:macro name="imu">

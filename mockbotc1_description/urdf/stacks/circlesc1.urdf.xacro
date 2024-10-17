@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Based on Turtlebot Create revised for Mock TurtleBot Create1 -->
-<robot name="mtbc1_hardware" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="mockbotc1_hardware" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="stack_circles" params="parent_link">
 
@@ -22,7 +22,7 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mtbc1_description/meshes/stacks/circles/plate_0_logo.dae"/>
+          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_0_logo.dae"/>
         </geometry>
       </visual>
 
@@ -52,7 +52,7 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mtbc1_description/meshes/stacks/circles/plate_1_logo.dae"/>
+          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_1_logo.dae"/>
         </geometry>
       </visual>
 
@@ -82,7 +82,7 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mtbc1_description/meshes/stacks/circles/plate_2_logo.dae"/>
+          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_2_logo.dae"/>
         </geometry>
       </visual>
 

@@ -5,7 +5,7 @@ This Repository is a varient of the Linorobot2 Repository with hardwire specific
 
 Note: This Procedure installs all base, bringup, description and navigation packages on the Robot Single Board (SBC) Computer (RaspBerry Pi) that does not necessarily require a connected monitor, though any robot, SLAM & Nav Visualization functions should be done on the Remote Desktop Computer. These procedures can be done directly on the Robot Computer running Ubuntu 22.04 Desktop with a connecte dMonitor, Keyboard & Mouse, or froma Ubuntu Desktop with a SSH remote connnection.     
 
-1. Install specfic functional Packages from ROS 2 and MockTurtleBotC1-ROBOT Github Repository into the workspace. e.g. mtbc1_ws
+1. Install specfic functional Packages from ROS 2 and MockTurtleBotC1-ROBOT Github Repository into the workspace. e.g. mockbotc1_ws
 
 1.1 Install and Source your ROS2 distro and workspace
 If it's your first time using ROS 2 and haven't created your ROS2 workspace yet, you can check out 
@@ -56,11 +56,11 @@ Logout and login for permission to take effect
 **Install USB udev rules**
 With Create 1 Base and RPLidar USB serail connection, it is essential that Linux Device manager interface to assign persistant names for these two serial ports, name. create1 and rplidar.
 
-**Create1**: The udev file *50-create.rule*s is included in the repository mtbc1_bringup/scripts folder 
+**Create1**: The udev file *50-create.rule*s is included in the repository mockbotc1_bringup/scripts folder 
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create1"
 
-In Linux terminal, navigate to the mtbc1_bringup/scripts folder and manually execute the following commands:
+In Linux terminal, navigate to the mockbotc1_bringup/scripts folder and manually execute the following commands:
 $ sudo cp 50-create.rules /etc/udev/rules.d
 $ sudo service udev reload
 $ sudo service udev restart
@@ -83,24 +83,24 @@ crw-rw-rw-  1 root   dialout 188,   1 Mar  5 14:02 ttyUSB1
 
 #### 1.5 Configure ENV Variables
 ### 1. Robot Type
-Set MTBC1_BASE env variable to the type of robot base that you want to use. This is not required if you're using a custom URDF. The MockTurtleBotC1 is a *2wd*. For example:
+Set mockbotc1_BASE env variable to the type of robot base that you want to use. This is not required if you're using a custom URDF. The MockTurtleBotC1 is a *2wd*. For example:
 
-    echo "export MTBC1_BASE=2wd" >> ~/.bashrc
+    echo "export mockbotc1_BASE=2wd" >> ~/.bashrc
 
 Tested Image and IMU sensor is:
 *oakdlite* - For example: [https://shop.luxonis.com/collections/oak-cameras-1/products/oak-d-lite-1?variant=42583102456031](https://shop.luxonis.com/collections/oak-cameras-1/products/oak-d-lite-1?variant=42583102456031)
 
-    echo "export MTBC1_DEPTH_SENSOR=oakdlite" >> ~/.bashrc
+    echo "export mockbotc1_DEPTH_SENSOR=oakdlite" >> ~/.bashrc
 
 #### 2 Laser Sensor
-The launch files of the tested laser sensors have already been added in bringup.launch.py. You can enable one of these sensors by exporting the laser sensor you're using to `MTBC1_LASER_SENSOR` env variable.
+The launch files of the tested laser sensors have already been added in bringup.launch.py. You can enable one of these sensors by exporting the laser sensor you're using to `mockbotc1_LASER_SENSOR` env variable.
 
 Tested Laser Sensors:
 *rplidar* - [RP LIDAR A1](https://www.slamtec.com/en/Lidar/A1)
 
-    echo "export MTBC1_LASER_SENSOR=rplidar" >> ~/.bashrc
+    echo "export mockbotc1_LASER_SENSOR=rplidar" >> ~/.bashrc
     
-   If you export a depth sensor to `MTBC1_LASER_SENSOR`, the launch file will run [depthimage_to_laserscan](https://github.com/ros-perception/depthimage_to_laserscan) to convert the depth sensor's depth image to laser.
+   If you export a depth sensor to `mockbotc1_LASER_SENSOR`, the launch file will run [depthimage_to_laserscan](https://github.com/ros-perception/depthimage_to_laserscan) to convert the depth sensor's depth image to laser.
 
 ### 3. Save changes
 Source your `~/.bashrc` to apply the changes you made:
@@ -122,8 +122,8 @@ and paste the following:
 
     #!/bin/sh
 
-    export MTBC1=<your_robot_type>
-    export MTBC1_LASER_SENSOR=<your_supported_sensor> #(optional)
+    export mockbotc1=<your_robot_type>
+    export mockbotc1_LASER_SENSOR=<your_supported_sensor> #(optional)
 
 ### 4.2 Create systemd service
 
