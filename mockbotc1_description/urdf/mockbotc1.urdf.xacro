@@ -7,7 +7,7 @@
   
   <!-- Test sensors_shelf.urdf.xacro -->
   <!-- <xacro:include filename="$(find mockbotc1_description)/urdf/sensors/sensors_shelf.urdf.xacro" /> -->
-  <xacro:include filename="$(find mockbotc1_description)/urdf/mockbot1_sensors.urdf.xacro"/>
+  <xacro:include filename="$(find mockbotc1_description)/urdf/mockbotc1_sensors.urdf.xacro"/>
   
   <xacro:include filename="$(find mockbotc1_description)/urdf/stacks/circlesc1.urdf.xacro"/>
 
