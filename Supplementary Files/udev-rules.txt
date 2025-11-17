@@ -1,0 +1,31 @@
+mockbotc1 udev Rules.507 Sep 4, 2025
+
+As described in https://github.com/ARLunan/MockBot-Docs/blob/main/Supplementary%20Content/Appendix%201-UDEV%20Rules.md, udev Rules may be necessary when 2 or more serial USB devices are plugged into the Raspberry Pi where the launch package is expecting a specific sustained name. A Udev Rule is a short script in a plain text file named, for example, 50-devicename.rules, that is saved into /etc/udev/rules.d/ when custom rules are created, that assigns a specific device name to the specific device, no matter which order they are powered up or plugged in..
+
+RPLIday
+For the RPLidar, its binary debian installation configures a udev rule 60-ros-jazzy-rplidar-ros.rules  into /etc/lib/rules.d/ folder with a symlink into the /dev folder.
+
+The create base udev rules file is named "50-create.rules" :
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE:="0666", SYMLINK+="create_1"
+
+Create/Roomba Base 
+On the RasPi workspace home directory, cd ~/ros2_ws/src/MockBOTc1-Robot/udev-rules 
+
+Copy this file into the /etc/dev/rules.d directory
+
+$ sudo cp 50-create.rules /etc/udev/rules.d/ 
+
+Execute this command to instantiate this rule.
+
+$ sudo udevadm control --reload
+
+This script sets the Create/Roomba Base USB device name to “create_1’ 
+
+Here is a list display of the MockTurtlebot serial ttyUSBx Create/Roomba Base and RPLidar ports on my RaspI Machine
+
+ubuntu@rp5-ub24h-mb:~$ ls -l /dev/ |grep USB
+lrwxrwxrwx 1 root root 7 Mar 5 14:02 create_1 -> ttyUSB0
+lrwxrwxrwx 1 root root 7 Mar 5 14:02 rplidar -> ttyUSB1
+crw-rw-rw- 1 root dialout 188, 0 Mar 5 14:02 ttyUSB0
+crw-rw-rw- 1 root dialout 188, 1 Mar 5 14:02 ttyUSB1
+

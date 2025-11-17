@@ -1,0 +1,37 @@
+# Revised from linorobot2 ekf.yaml by ARLunan Nov 4, 2025
+# EKF configuration for MockBotC1 /odom/unfiltered from sygyn nov 8/25 note
+# Revise base.launch.py l37 & bringup.launch.py to /odom/unfiltered
+# https://docs.nav2.org/setup_guides/odom/setup_robot_localization.html
+# references from WimbleRobotics Sigyn project
+### ekf config file ###
+# odom topic published by create1 base, imu topic by OAK-D-LITE 
+#
+ekf_filter_node:
+    ros__parameters:
+        frequency: 10.0
+        two_d_mode: true
+        publish_tf: true
+ 
+        map_frame: map             
+        odom_frame: odom            
+        base_link_frame: base_link 
+        world_frame: odom 
+
+        #x     , y     , z,
+        #roll  , pitch , yaw,
+        #vx    , vy    , vz,
+        #vroll , vpitch, vyaw,
+        #ax    , ay    , az
+        odom0: odom/unfiltered
+        odom0_config: [false, false, false,
+                       false, false, false,
+                       true, true, false,
+                       false, false, true,
+                       false, false, false]
+
+        imu0: imu/data
+        imu0_config: [false, false, false,
+                      false, false, false,
+                      false, false, false,
+                      false, false, true,
+                      false, false, false]

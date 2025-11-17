@@ -1,0 +1,55 @@
+MockBOTc1 Desktop and Robot bringup Cheatsheet	Oct 12, 2024
+For Ubuntu24.04 Noble/ROS2 Humble on both RaspPI5 Robot & Desktop Machines   
+
+https://github.com/ARLunan/MockBOTc1-Desktop.git
+https://github.com/ARLunan/MockBOTc1-Robot.git
+
+My USERNAME HOSTNAME Robot & Desktop Machine Names
+Robot ubuntu@rp5-ub24j-mb, Dekstop ubuntu@macvm-ub24j-mb
+
+Bringup Robot and Navigation System
+From Desktop > open Terminal, ssh into Robot, $ sudo ssh ubuntu@rp5-ub24j-mb.local > password
+Turn on the Create Base and enable the Joystick by pushing Logitech Button. SLlidar is powered by RasPi USB
+Run $ ros2 launch mockbotc1_bringup bringup.launch.py
+
+To optionally Manually Launch Base, SLLidar, or Logitech Joystick,  in 3 other ssh Desktop Terminals 
+
+$ ros2 launch mockbotc1_bringup base.launch.py
+$ ros2 launch mockbotc1_bringup sllidar_a1.launch.py
+$ ros2 launch mockbotc1_bringup joy_teleop.py
+
+Keyboard Teleop from another Desktop ssh Terminal 
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard , or 
+
+Desktop
+To Check the URDF, optionally visualize the Robot on the desktop with a new Terminal which open a RVIZ2 Window
+$ ros2 launch mockbotc1_description description.launch.py rviz:=True
+
+Launch Desktop Bringup to launch description & ekf Localization
+Check Localization status, in another Desktop Terminal
+$ ros2 node info /ekf_filter_node ekf_node 
+
+Create a MAP
+$ ros2 launch mockbotc1_navigation slam.launch.py
+
+From another Desktop Terminal Window,  
+
+\$ cd Desktop  
+\$ mkdir maps  
+\$ cd maps
+
+Move the Robot around the area of navigation until suitably covered, then save the MAP into a Desktop Folder, /home/ubuntu/Desktop/maps/.  
+
+$ ros2 run nav2_map_server map_saver_cli -f --ros-args -p save_map_timeout:=10000
+
+Autonomous Navigation
+
+Load the map you created: $ ros2 launch mockbotc1_navigation navigation.launch.py map:='~/Desktop/maps/mapname.yaml
+
+Run Nav2 package:
+$ ros2 launch mockbot_navigation navigation.launch.py
+
+The Map will Vizualize (by Default) in RViz2 on the Desktop Host Machine
+$ ros2 launch linorobot2_viz navigation.launch.py rviz:=true
+
+Check out Nav2 Tutorial [NAV2](https://docs.nav2.org/tutorials/docs/navigation2_on_real_turtlebot3.html#initialize-the-location-of-turtlebot-3) for more details on how to initialize and send goal pose.
