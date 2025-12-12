@@ -31,8 +31,9 @@ def generate_launch_description():
     package_path=get_package_share_directory(package_name)  
     
     urdf_path = PathJoinSubstitution(
-        [FindPackageShare(package_name), "urdf", "mockbotc1.urdf.xacro"]
-        #[FindPackageShare(package_name), "urdf", "smarty_description.urdf"]
+        #[FindPackageShare(package_name), "urdf", "sam_bot_description.urdf.xacro"]
+        #[FindPackageShare(package_name), "urdf", "mockbotc1.urdf.xacro"]
+        [FindPackageShare(package_name), "urdf", "smarty_description.urdf"]
     )
 
     rviz_config_path = PathJoinSubstitution(

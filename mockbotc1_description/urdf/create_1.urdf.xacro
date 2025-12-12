@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot name="mockbotc1" xmlns:xacro="http://ros.org/wiki/xacro">
+   
+  <xacro:include filename="create_base.urdf.xacro"/>
+
+  <!-- TBD Add IMU & laser Lidar Sensor propeeties -->  
+  
+  <!-- Mesh varient
+  <xacro:create_base wheel_separation="${25.8*cm2m}" base_diameter="${33.02*cm2m}" base_length="${6.11632*cm2m}" wheel_radius="${3.302*cm2m}" wheel_width="${2.4*cm2m}" wheel_zoffset="${5*cm2m}" mass_kg="3.5" mesh*>
+    <mesh filename="file://create_description/meshes/create_1.dae" />
+  </xacro:create_base> -->
+
+  <!-- Geometry Cylinder varient -->
+  <xacro:create_base wheel_separation="${25.8*cm2m}" base_diameter="${33.02*cm2m}" base_length="${6.11632*cm2m}" wheel_radius="${3.302*cm2m}" wheel_width="${2.4*cm2m}" wheel_zoffset="${5*cm2m}" mass_kg="3.5">
+  </xacro:create_base>
+
+</robot>

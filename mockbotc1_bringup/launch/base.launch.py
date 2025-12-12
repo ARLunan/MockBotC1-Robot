@@ -1,4 +1,9 @@
-# Revised by ARLnan for use in MockBOTc1 Nov 10, 2025
+# Revised by ARLunan for use in MockBOTc1 Nov 10, 2025
+# Derived from "create_driver" Node in slgrobotics
+# https://github.com/slgrobotics/articubot_one/blob/main/robots/turtle/launch/turtle.drive.launch.py
+# To configure the /odom topic names for compatibility with the Extended Kalman Filter (EKF) &
+# slam_toolbox localization packages.
+# remappings 'odom', from  /odom to /odom/unfiltered 
 # dev=/dev/create_1 due to udev rules 
 # remapping to /odom/unfiltered
 

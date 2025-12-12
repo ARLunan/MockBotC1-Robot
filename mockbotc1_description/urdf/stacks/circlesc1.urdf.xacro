@@ -2,7 +2,17 @@
 <!-- Based on Turtlebot Create revised for Mock TurtleBot Create1 -->
 <robot name="mockbotc1_hardware" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="stack_circles" params="parent_link">
+  <!-- Define Circles constants -->
+  <xacro:property name="plate_diameter" value="${31.5*cm2m}"/>
+  <xacro:property name="plate_length" value="${6*cm2m}"/>
+  <xacro:property name="standoff_length" value="${27.6*cm2m}"/>
+  <xacro:property name="standoff_diameter" value="${0.6*cm2m}"/>
+  <xacro:property name="standoff_rear_xoffset" value="${11.9*cm2m}"/>
+  <xacro:property name="standoff_front_xoffset" value="${5.0*cm2m}"/>
+  <xacro:property name="standoff_yoffset" value="${13.1*cm2m}"/>
+  <xacro:property name="standoff_zoffset" value="$(16.92*cm2m}"/>
+  
+    <xacro:macro name="stack_circles" params="parent_link">
 
     <joint name="plate_0_joint" type="fixed">
       <origin xyz="-0.04334 0  0.06775704" rpy="0 0 0" />
@@ -22,8 +32,10 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_0_logo.dae"/>
+        <!-- <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_0_logo.dae"/>  -->
+        <cylindar length="${plate_length}" radius="${plate_diameter/2}"/>
         </geometry>
+        <material name="white"/>
       </visual>
 
       <collision>
@@ -52,8 +64,10 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_1_logo.dae"/>
+          <!-- <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_1_logo.dae"/> -->
+          <cylindar length="${plate_length}" radius="${plate_diameter/2}"/>
         </geometry>
+        <material name="white"\>
       </visual>
 
       <collision>
@@ -82,8 +96,10 @@
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_2_logo.dae"/>
+          <!-- <mesh filename="package://mockbotc1_description/meshes/stacks/circles/plate_2_logo.dae"/> -->
+          <cylindar plate_length="${plate_length}" plate_radius="${plate_diameter/2}"/>
         </geometry>
+        <material name="white"\>
       </visual>
 
       <collision>

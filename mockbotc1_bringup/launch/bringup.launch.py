@@ -1,8 +1,12 @@
-# Launch script for MOCKBOTc1 mockbotc1_bringup package by ARLunan November 2025
-#
+# Launch script for MOCKBOTc1 mockbotc1_bringup package by ARLunan November 2025 derived from 
+# https://github.com/linorobot/linorobot2.git
+# 
 # Launches ROS 2 Python launch scripts, for the Base, Sensors:SLLIdar, OAK-D-Lite RGB Inertial Camera and IMU), 
 # Logitech F710 Gamepad Joystick, ekf_filter_node, description (joint & robot state publisher) 
-# Using Substitutions for Large Projects https://docs.ros.org/en/kilted/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html
+# For compatibility with the Extended Kalman Filter (EKF) & slam_toolbox localization 
+# Revise odom_topic default_value to /odom/unfiltered and
+# Revise remappings "odometry/unfiltered", odom_topic and add odometry/filtered, "/odom" 
+# Using Substitutions for Large Projects https://docs.ros.org/en/kilted/Tutorials/Int`ermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,6 +56,10 @@ def generate_launch_description():
         IncludeLaunchDescription(
            PathJoinSubstitution([bringup_launch_dir, 'joy_teleop.launch.py'])
          ),
+
+         IncludeLaunchDescription(
+           PathJoinSubstitution([bringup_launch_dir, 'twist_mux.launch.py'])
+         ),
        
          Node(
             package='robot_localization',
@@ -61,7 +69,8 @@ def generate_launch_description():
             parameters=[
                 ekf_config_path
             ],
-            remappings=[("odometry/unfiltered", LaunchConfiguration("odom_topic"))]
+            remappings=[("odometry/unfiltered", LaunchConfiguration("odom_topic")),
+                        ("odometry/filtered", "/odom")],
          ),
         
          TimerAction(

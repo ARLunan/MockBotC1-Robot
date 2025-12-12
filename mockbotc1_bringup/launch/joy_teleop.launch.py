@@ -30,18 +30,21 @@ def generate_launch_description():
         [FindPackageShare("mockbotc1_bringup"), "config", "f710.yaml"]
     )
     return LaunchDescription([
+        
         Node(
             package='joy_linux',
             executable='joy_linux_node',
             name='joy_linux_node',
             output='screen',
         ),
-
+        
         Node(
             package='teleop_twist_joy',
             executable='teleop_node',
             name='teleop_twist_joy_node',
             output='screen',
-            parameters=[joy_config_path]
-        )
+            parameters=[joy_config_path],
+            remappings=[('cmd_vel', 'cmd_vel_joy'),               
+            ]
+        ) 
     ])  

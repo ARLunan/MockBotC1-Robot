@@ -8,7 +8,7 @@ Note: This Procedure installs all base, sllidar, joy_teleop bringup, description
 
 ### 1. Install specfic functional Packages from ROS 2 and MockBOTc1-ROBOT Github Repository into the workspace. e.g. ros2_ws
 
-### 1.1 Install and Source your ROS2 distro including colcon developement packages, and workspace
+### 1.1 Install and Source your ROS2 distro including colcon development packages, and workspace
 If it's your first time using ROS 2 and haven't created your ROS2 workspace yet, you can check out 
 [ROS2 Creating a Workspace](https://docs.ros.org/en/jazzy/Tutorials/Workspace/Creating-A-Workspace.html) tutorial. 
 The MockBOTc1 code supports ros-distro = **jazzy** currently.  
@@ -36,7 +36,7 @@ ROS_DISTRO\=jazzy
 
 A reminder that , as described in this repository's README.me, configure the **.gitignore** file if using Git and VSCode applications to develop code.  
 
-### 1.1 Robot Launch packages  
+### 1.2 Robot Launch packages  
 
 Three repositries are available that describes and define the packages in the MockBOT TurtleTron Robot
 
@@ -55,7 +55,7 @@ Note: See https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Rosdep.html
 
 The "colcon build" on a Raspberry Pi 4 or 5 - should take a few minutes.
 
-### Configure Environment in Ubuntu Terminal  
+### 1.3 Configure Environment in Ubuntu Terminal  
 
 \$ cd ~/  
 \$ nan0 .bashrc  
@@ -65,7 +65,7 @@ source /ros2_ws/install/setup.bash
 Save  
 Restart Terminal
 
-### 1.1 Install Create Base Library and driver
+### 1.4 Install Create Base Library and driver
 
 This Turtlebot Create Robot uses an iRobot Roomba 400 or Create 1 Base having a battery, Differerential Drive (2WD) motors controlled from a serial protocol with Subscription to /cmd_vel and  Publishes Odometry data. The driver packages are installed from a gthub.com repository, cloned onto a local workspace and colcon build:  
 
@@ -91,7 +91,7 @@ this will take a while, many additional packages installed:
 
 The "colcon build" on a Raspberry Pi 4 or 5 - should take a few minutes.
 
-### 1.2 Sensors: Slamtech© RPLIdar, Luxonis© OAK-D-Lite Camera RGB image, Stereo depth drivers, and IMU  
+### 1.5 Sensors: Slamtech© RPLIdar, Luxonis© OAK-D-Lite Camera RGB image, Stereo depth drivers, and IMU  
 
 **SllIDAR**  
 \$ cd ros2_ws\/src
@@ -118,7 +118,7 @@ A suitable launch script will be provided to launch the Camera and IMU in the "b
 
 The camera is powered from a USB-C connector preferably configured with a Power Splitter to power the camera directly from the battery source and data connection to USB-3 on the Raspberry Pi.  
 
-### 1.4 Configure Serial USB Permissions and Install USB Serial Port udev Rules
+### 1.6 Configure Serial USB Permissions and Install USB Serial Port udev Rules
 
 USB Permissions
 In order to connect to Create over USB, ensure your user is in the dialout group. Refer also to MockBOT-DOCs https://github.com/ARLunan/MockBot-Docs.git [Appendix 1: UDEV Rules to manage USB Connected Devices](https://github.com/ARLunan/MockBot-Docs.git)
@@ -129,11 +129,11 @@ Logout and login for permission to take effect
 **Install USB udev rules**
 With Create 1 Base and RPLidar USB serial connection, it is essential that Linux Device manager interface to assign persistant names for these two serial ports in the /dev folder. /dev/create1 and /dev/rlidar.
 
-The two nesessary udev rules are posted in the MockBot-Docs repository /Supplementary Content/ folder ( https://github.com/ARLunan/MockBot-Docs.git )
+The two necessary udev rules are posted in the MockBot-Docs repository /Supplementary Content/ folder ( https://github.com/ARLunan/MockBot-Docs.git )
 
 **Create1**: The udev file *50-create.rule* 
 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create1"
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create_1"
 
 In Linux terminal, navigate to the mockbotc1_bringup/scripts folder and manually execute the following commands:
 \$ sudo cp 50-create.rules /etc/udev/rules.d
@@ -144,7 +144,7 @@ In Linux terminal, navigate to the mockbotc1_bringup/scripts folder and manually
 **SLLidar**: 
 The udev file *60-create.rule*s is included in the above repository 
 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create1"
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4" ATTRS{idProduct}=="ea60", MODE:-"0666', SYMLINK+="rplidar1"
 
 In Linux terminal, navigate to the mockbotc1_bringup/scripts folder and manually execute the following commands:
 \$ sudo cp 60-create.rules /etc/udev/rules.d
@@ -155,7 +155,7 @@ To verify the correct functioning of the udev rules, rom a terminal running the 
 
 ubuntu@rp5-ub24h-mt:\~\$ ls -l /dev/ |grep USB
 
-lrwxrwxrwx  1 root   root           7 Mar  5 14:02 create1 -> ttyUSB0  
+lrwxrwxrwx  1 root   root           7 Mar  5 14:02 create_1 -> ttyUSB0  
 lrwxrwxrwx  1 root   root           7 Mar  5 14:02 rplidar -> ttyUSB1  
 crw-rw-rw-  1 root   dialout 188,   0 Mar  5 14:02 ttyUSB0  
 crw-rw-rw-  1 root   dialout 188,   1 Mar  5 14:02 ttyUSB1  
