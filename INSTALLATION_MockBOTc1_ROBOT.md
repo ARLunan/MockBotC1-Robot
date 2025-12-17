@@ -13,6 +13,42 @@ If it's your first time using ROS 2 and haven't created your ROS2 workspace yet,
 [ROS2 Creating a Workspace](https://docs.ros.org/en/jazzy/Tutorials/Workspace/Creating-A-Workspace.html) tutorial. 
 The MockBOTc1 code supports ros-distro = **jazzy** currently.  
 
+While not essential the following Ubuntu packages can be helpful in running and trouble-shotting your Robot & Desktop computers. Install these ubuntu packages with with  
+**"~/sudo apt install" openssh-server, avahi-daemon, htop, nload** .
+
+From the Ubuntu home directory,  
+**~/git clone https://github.com/linorobot/ros2me** , then run **~/ .install**
+
+1.1 Source your ROS 2 distro, which is **jazzy** in this documentation and workspace
+source /opt/ros/jazzy/setup.bash
+cd ros2_ws
+colcon build
+source install/setup.bash
+
+add this script to the ~/.bashrc in your home directory to make this designation persistant for any terminal instance  
+
+**\$ export "source /opt/ros/jazzy/setup.bash"**
+
+The <your_ws> workspace is designated as **ros2\_ws/src**, or whatever you desire to use.
+
+\$ sudo apt-get install build-essential cmake libboost-system-dev libboost-thread-dev
+
+1.2 Configure .gitignore in root directory of Remote Desktop and Robot SBC (Single Board Computer)
+Suggest use the sample file ROS.gitignore file from [https://github.com/github/gitignore]() . Suggest using the ROS.gitignore file and add these several additional lines if VSCode is deployed on the Desktop and Robot machines and you use Git.
+
+\# VSCode
+/.vscode/  
+**/.vscode/  
+log/  
+build/  
+install/
+
+\# .gitignore  
+/.gitignore
+
+\# .DS_Store  
+.DS\_Store
+
 From a Linux Terminal install the joy teleop packages
     \$ sudo apt install ros-jazzy-joy-linux
     \$ sudo apt install ros-jazzy-teleop\-twist\-joy  
@@ -30,9 +66,9 @@ should be displayed
 
 \$ printenv | grep -i ROS  
 
-ROS_VERSION\=2  
-ROS_PYTHON_VERSION\=3  
-ROS_DISTRO\=jazzy
+ROS\_VERSION\=2  
+ROS\_PYTHON_VERSION\=3  
+ROS\_DISTRO\=jazzy
 
 A reminder that , as described in this repository's README.me, configure the **.gitignore** file if using Git and VSCode applications to develop code.  
 
@@ -45,20 +81,21 @@ https://github.com/ARLunan/MockBOTc1-Desktop.git [MockBOTc1-Desktop](https://git
 https://github.com/Slamtec/sllidar_ros2.git [MockBOTc1-Docs] (https://github.com/Slamtec/sllidar_ros2.git)
 
 \$ mkdir -p ~/ros2\_ws/src  
-\$ cd ~/ros2_ws/src  
+\$ cd ~/ros2\_ws/src  
 \$ git clone https://github.com/ARLunan/MockBOTc1-Robot.git  
 \$ cd ~/ros2_ws  
 
 Note: See https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Rosdep.html  
 
-\$ colcon build  
+\$ ros2_ws/\$ colcon build
+\$ ros2_ws/\$ . .bashrc/setup.bash   
 
 The "colcon build" on a Raspberry Pi 4 or 5 - should take a few minutes.
 
 ### 1.3 Configure Environment in Ubuntu Terminal  
 
 \$ cd ~/  
-\$ nan0 .bashrc  
+\$ nano .bashrc  
 Add  
 source /opt/ros/jazzy/setup.bash  
 source /ros2_ws/install/setup.bash  
@@ -67,7 +104,7 @@ Restart Terminal
 
 ### 1.4 Install Create Base Library and driver
 
-This Turtlebot Create Robot uses an iRobot Roomba 400 or Create 1 Base having a battery, Differerential Drive (2WD) motors controlled from a serial protocol with Subscription to /cmd_vel and  Publishes Odometry data. The driver packages are installed from a gthub.com repository, cloned onto a local workspace and colcon build:  
+This TurtleTron Create Robot uses an iRobot Roomba 400 or Create 1 Base having a battery, Differerential Drive (2WD) motors controlled from a serial protocol with Subscription to /cmd_vel and  Publishes Odometry data. The driver packages are installed from a gthub.com repository, cloned onto a local workspace and colcon build:  
 
 ### Here are all commands on the Raspberry Pi  
 
@@ -110,7 +147,7 @@ Power and Data data connection is to a USB-3 connector on the Raspberry Pi.
 
 The drivers are installed from a Binary package on the ROS Repository with the following script run from a Terminal : (where \$ROS_DISTRO is humble, previously installed on the Robot. 
 
-   \$ sudo apt install ros_\$ROS_DISTRO-depthai-ros
+   \$ sudo apt install ros\_\$ROS_DISTRO-depthai-ros
     
 Of many ARGUMENTS used in the Oak-D-Lite driver,  several values in the Launch scripts are set that are suitable for this robot model: camera_model = OAK-D-LITE, mode = depth, imu_Mode = 1 (LINEAR_INTERPOLATE_GYRO to prioritize gyroscope & interpolates Accelerometer Data suitable for yaw rate use), stereo_fps = 10 (to reduce message load), previewWidth, previewHeight = 412, enableRviz = False (no Rviz display on the Robot).
 
@@ -160,7 +197,7 @@ lrwxrwxrwx  1 root   root           7 Mar  5 14:02 rplidar -> ttyUSB1
 crw-rw-rw-  1 root   dialout 188,   0 Mar  5 14:02 ttyUSB0  
 crw-rw-rw-  1 root   dialout 188,   1 Mar  5 14:02 ttyUSB1  
 
-### 2 Laser Sensor  
+### 2 Camera and IMU Sensor  
 
 The installation procedure for the OAK-D-Lite Camera and IMU will be posted here when complete
 
