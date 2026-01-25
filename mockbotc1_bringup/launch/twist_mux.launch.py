@@ -1,7 +1,8 @@
 # Revised by ARLunan for the MockBITc1 Project using twist_mux ONLY -NOT twist_marker or joystick_relay
 # Launch twist_mux nodes (twistStamped;=False) for velocity command multiplexing
 # based on slgrobotics articubot_one launch file
-#
+# Install ros-jazzy-twist-mux package
+# Licensed under the Apache License, Version 2.0 (the "License");
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
