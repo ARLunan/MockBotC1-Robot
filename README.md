@@ -1,6 +1,7 @@
-# MockBOT Project - TurtleTron iRobot© Create 1/Roomba 400 Base
+# MockBOT Project - MockBOT TurtleTron iRobot© Create 1/Roomba 400 Base
 
-This project defines the Jazzy branch for the TurtleTron Roomba 400/Create 1 base only.  
+This repository for **MockBOT** TurtleTron project defines the Jazzy branch for the Roomba 400/Create 1 base only robot project,supported by several varients on the AutonomyLabs Packages repository. The **MockBOT** project is described in the book "MockBOT: Over-the-shoulder instructions on how to build your own personal robot". It can be purchased from amazon.com, amazon.ca, or in other locations, in Books dropdown, Search MockBOT, DIY robotics. Addendums to The TurtleTron specific text are also hosted in the **MockBOTc1-Docs** repository.
+
 At this time, this repository is "Work in Progress" so expect errors to be displayed after launching many of the scripts and packages. 
 
 The purpose of the work in this repository is to document the development and post the release of ROS 2 Packages that migrate the original "Willow Garage" / Open Robotics Turtlebot (tm) where the last released repository was ROS Indigo, to ROS 2 Jazzy Robot and Navigation 2 autonomous navigation packages. This new repository called "MockBOTc1" uses this original iRobot Create (™) (Now referred to as Create 1) Base, is a Roomba 400 Robot Vacuum product. It should be mentioned that while this repository is written to use with a iRobot Create 1, the installed base drive package by slgrobotics [](https://github.com/slgrobotics) which is a fork of (_Autonomy Labs ™_) includes support for the Roomba Model 400, 500 or 600) and Create 2 base. See Wikipedia for details of the various Roomba Models from 2004 to 2013. [] (https://en.wikipedia.org/wiki/IRobot_Create) To enable these drivers, a varient ot the bringup.launch.py must be used that is installed in the mockBOTc1_ws workspace and compiled.
