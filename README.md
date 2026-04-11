@@ -13,7 +13,7 @@ mockbotc1\_bringup bringup.launch.py**. This script launches the Create\_1/ Room
 
 Launching the slam\_toolbox, mapping and locaization, navigation functions are executed on the Desktop.
 
-The Robot ekt Sensor Fusion and twist\_mux packages manage the several /cmd_vel messages from the  teleop (/cmd_vel_joy, cmd_vel_key, cmd_vel_key and Desktop  navigation (cmd_vel_nav) packages functions into a single /cmd_vel to drive the Create Base.
+The Robot EKF Sensor Fusion and twist\_mux packages manage the several /cmd_vel messages from the  teleop (/cmd_vel_joy, cmd_vel_key, cmd_vel_key and Desktop  navigation (cmd_vel_nav) packages functions into a single /cmd_vel to drive the Create Base.
 
 For ongoing work it is customary and conveninet to include the ros2 and workspace path locations saved into the Raspberry Pi Ubuntu root directory /home/ubuntu/ .bashrc file, as follows:  
 

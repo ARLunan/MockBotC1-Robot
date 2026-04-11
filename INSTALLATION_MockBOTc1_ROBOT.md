@@ -58,7 +58,7 @@ From a Linux Terminal install the joy teleop packages
 #### Check that ROS 2 is installed and sourced
 
 In a Terminal, type
-\$ which ros2
+\$ which ros2  
 /opt/ros/jazzy/bin/ros2
 should be displayed
 
