@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 KERNAL=="ttyUSB*", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create_1"
-=======
-KERNAL=="ttyUSB*", ATTRS{idVendor}=="0403" ATTRS{idProduct}=="6001", MODE:-"0666', SYMLINK+="create1"
->>>>>>> 208c8f4725551112c0c1a9bed5178007a18fef8d
+
