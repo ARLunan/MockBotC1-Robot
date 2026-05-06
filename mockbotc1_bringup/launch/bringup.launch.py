@@ -1,6 +1,6 @@
 # Launch script for MOCKBOTc1 mockbotc1_bringup package by ARLunan November 2025 derived from 
 # https://github.com/linorobot/linorobot2.git
-# ros2 launch mockbotc1_brinup bringup.launch.py
+# ros2 launch mockbotc1_bringup bringup.launch.py
 # Launches ROS 2 Python launch scripts, for the Base, Sensors:SLLIdar, OAK-D-Lite RGB Inertial Camera and IMU), 
 # Logitech F710 Gamepad Joystick, ekf_filter_node, description (joint & robot state publisher) 
 # For compatibility with the Extended Kalman Filter (EKF) & slam_toolbox localization 
